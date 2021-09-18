@@ -1,0 +1,20 @@
+.statisticsInfo {
+  list-style: none;
+  padding: 0;
+
+  font-weight: 600;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.itemInfo {
+  font-size: 18px;
+
+  text-transform: capitalize;
+}
+
+.noFeedbackMassage {
+  font-weight: 500;
+}

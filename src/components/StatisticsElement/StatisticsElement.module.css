@@ -1,0 +1,9 @@
+.item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.itemInfo {
+  font-size: 18px;
+
+  text-transform: capitalize;
+}

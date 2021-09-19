@@ -20,7 +20,7 @@ function App() {
   return (
     <div className={s.app}>
       <Feedback
-        feedback={[good, neutral, bad]}
+        feedback={['good', 'neutral', 'bad']}
         changeCoutFeedback={handleChangeFeedbackCount}
       />
     </div>

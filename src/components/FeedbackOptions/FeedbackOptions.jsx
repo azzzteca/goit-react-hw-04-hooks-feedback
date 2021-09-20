@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import s from './FeedbackOptions.module.css';
 
 export function FeedbackOptions({ feedback, changeCoutFeedback }) {
-  // const buttons = Object.keys(feedback);
+  const buttons = Object.keys(feedback);
 
   return (
     <form className={s.form} onClick={changeCoutFeedback}>
-      {feedback.map(button => {
+      {buttons.map((button, idx) => {
+        // console.log(button, idx);
         return (
-          <button key={button} id={button} type="button" className={s.button}>
+          <button key={idx} id={button} type="button" className={s.button}>
             {button}
           </button>
         );

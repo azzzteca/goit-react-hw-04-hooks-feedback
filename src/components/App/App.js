@@ -1,67 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Feedback from '../Feedback/Feedback';
 import s from './App.module.css';
 
-function App() {
+export function App() {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+
+  const feedbackOptions = { good, neutral, bad };
 
   const handleChangeFeedbackCount = evt => {
     if (evt.target.tagName !== 'BUTTON') {
       return;
     }
 
-    // this.setState(prevState => ({
-    //   [evt.target.id]: prevState[evt.target.id] + 1,
-    // }));
+    switch (evt.target.id) {
+      case 'good':
+        setGood(good + 1);
+        break;
+
+      case 'neutral':
+        setNeutral(neutral + 1);
+        break;
+      case 'bad':
+        setBad(bad + 1);
+        break;
+      default:
+    }
   };
 
   return (
     <div className={s.app}>
       <Feedback
-        feedback={['good', 'neutral', 'bad']}
+        feedback={feedbackOptions}
         changeCoutFeedback={handleChangeFeedbackCount}
       />
     </div>
   );
 }
-
-export default App;
-
-// class App extends Component {
-//   static defaultProps = {
-//     good: 0,
-//     neutral: 0,
-//     bad: 0,
-//   };
-
-//   state = {
-//     good: this.props.good,
-//     neutral: this.props.neutral,
-//     bad: this.props.bad,
-//   };
-
-//   handleChangeFeedbackCount = evt => {
-//     if (evt.target.tagName !== 'BUTTON') {
-//       return;
-//     }
-
-//     this.setState(prevState => ({
-//       [evt.target.id]: prevState[evt.target.id] + 1,
-//     }));
-//   };
-
-//   render() {
-//     return (
-//       <div className={s.app}>
-//         <Feedback
-//           feedback={this.state}
-//           changeCoutFeedback={this.handleChangeFeedbackCount}
-//         />
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
